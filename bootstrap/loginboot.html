@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+    
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<style type="text/css">
+		input:focus
+		{
+			background-color: lightgreen !important;
+			color:white !important;
+		}
+		input:hover
+		{
+			background-color: tomato !important;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="field" class="bg-danger text-center w-3">Please enter all the fields</div>
+<div id="reg" class="row border border-2 mt-5 ml-5 mr-5">
+	<div class="col-md-12">
+		<label for="Username" class="mt-5">Username</label><br>
+		<input id="uname" class="form-control" type="text" name=""><br>
+		<label for="Password">Password</label> 
+		<label id="displaypasswd"></label>
+		<br>
+		<span><input id="passwd" type="password" name="" ></span><span><button onclick="show()"><i class="fa fa-key"></i></button></span>
+
+		<button onclick="showlogin();" style="float:right"><i id="load" class="fa fa-spinner fa-spin" style="visibility: hidden"></i>Register</button>
+	</div>
+</div>
+<!-- <div class="row justify-content-center " style="margin-top: 200px;">	 -->
+<div  id="login" class="card border border-2 rounded-top border-primary " style="margin-left:30%; margin-top:5%;width:400px !important; visibility: hidden;" >
+	<div>
+	<div class="card-header bg-primary">
+		<h3 class="text-center ">Login</h3>
+	</div>
+	<div class="card-body bg-secondary">
+		<label for="Username">Username</label>
+		<input class="form-control " id="Username" type="text" name="Mamata">
+		<label for="Password">Password</label>
+		<input class="form-control" type="Password" name="name">
+	</div>
+	<div class="card-footer bg-warning">
+		<button class="btn btn-outline-danger">Cancel</button>
+		<button class="btn btn-outline-success float-right">Login</button>
+	</div>
+</div>
+</div>
+<script>
+		function showloading()
+		{
+
+
+			document.getElementById("login").style.visibility="visible";
+			
+			document.getElementById("load").style.visibility="hidden";
+			
+		}
+		function showlogin()
+		{
+			document.getElementById("load").style.visibility="visible";
+			var username=document.getElementById("uname").value;
+			var password=document.getElementById("passwd").value;
+			if(username!=='' && password!=='')
+			{
+				setInterval(showloading,2000);
+			document.getElementById("reg").style.visibility="hidden";
+                
+			}
+			else 
+			{
+				alert("Please enter the text");
+			document.getElementById("load").style.visibility="hidden";
+		     }
+	
+		}
+		function show()
+		{
+			var password=document.getElementById("passwd").value;
+			document.getElementById("displaypasswd").innerHTML=`Password:${password}`;
+		}
+		
+
+		</script>
+
+</body>
+</html>
